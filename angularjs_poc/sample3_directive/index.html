@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="../angular.js"></script>
+
+  </head>
+  <body>
+    <div ng-controller="myController">
+      <div >
+        <label> 1. ng-repeat, ng-if, ng-model, filter</br>
+        I have {{friends.length}} friends. They are:
+        <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+        <ul >
+          <li ng-repeat="friend in friends | filter:q as results">
+            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+          </li>
+          <li ng-if="results.length === 0">
+            <strong>No results found...</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <label> 2. ng-model, ng-options </br>
+        <label> Choose a color:
+        <select ng-model="colorChosen" ng-options="color.name for color in colors">
+
+            </select>
+        </label>
+        <br>
+
+        selected color : {{ colorChosen.name }}
+        <div style="border:solid 1px black; height:20px"
+             ng-style="{'background-color':colorChosen.color}">
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    angular.module('myApp',[]).controller('myController',function($scope)
+    {
+      $scope.friends = [
+        {name:'John', age:25, gender:'boy'},
+        {name:'Jessie', age:30, gender:'girl'},
+        {name:'Johanna', age:28, gender:'girl'},
+        {name:'Joy', age:15, gender:'girl'},
+        {name:'Mary', age:28, gender:'girl'},
+        {name:'Peter', age:95, gender:'boy'},
+        {name:'Sebastian', age:50, gender:'boy'},
+        {name:'Erika', age:27, gender:'girl'},
+        {name:'Patrick', age:40, gender:'boy'},
+        {name:'Samantha', age:60, gender:'girl'}
+      ];
+
+      $scope.colors = [
+        {name: '黑色', color:'black' },
+        {name: '白色', color:'white' },
+        {name: '红色', color:'red' },
+        {name: '蓝色', color:'blue' },
+        {name: '黄色', color:'yellow'}
+      ];
+
+      //保存选中的状态，默认颜色设置为黑色
+      $scope.colorChosen = $scope.colors[0];
+    });
+
+  </script>
+</html>

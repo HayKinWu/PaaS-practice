@@ -1,0 +1,17 @@
+{
+  "name": "mongodb-sample",
+  "type": "sample",
+  "description": "MongoDB PHP Sample",
+  "keywords": ["php", "mongodb"],
+
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Allan Fan",
+      "email": "chi-wen.fan@mail.foxconn.com"
+    }
+  ],
+  "require": {
+      "mongodb/mongodb": "1.1.2"
+  }
+}

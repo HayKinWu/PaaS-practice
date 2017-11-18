@@ -1,0 +1,17 @@
+{
+  "name": "redis-sample",
+  "type": "sample",
+  "description": "Redis PHP Sample",
+  "keywords": ["php", "redis"],
+
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Allan Fan",
+      "email": "chi-wen.fan@mail.foxconn.com"
+    }
+  ],
+  "require": {
+      "predis/predis": "*"
+  }
+}
